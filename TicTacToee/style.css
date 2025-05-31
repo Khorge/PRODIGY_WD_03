@@ -1,0 +1,110 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: radial-gradient(circle at center, #0f0f0f 0%, #1a1a2e 100%);
+      color: #fff;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .board {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 10px;
+      margin: 0 auto 20px;
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      background: #ffffff10;
+      border: 2px solid #0ff;
+      font-size: 2.5rem;
+      color: #0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s, transform 0.2s;
+      user-select: none;
+    }
+    .cell:hover {
+      background: #ffffff20;
+      transform: scale(1.05);
+    }
+    #status {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      transition: color 0.5s ease;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #0ff;
+      border: none;
+      color: #000;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #00f7ff;
+    }
+    .win-line {
+      position: absolute;
+      z-index: 10;
+      border-radius: 5px;
+      height: 6px;
+      transform-origin: left center;
+      transition: transform 0.5s ease-out;
+      background: linear-gradient(90deg, #ff0040, #ffbb00, #00ff99, #0055ff, #ff0040);
+      background-size: 400% 400%;
+      animation: gradientGlow 3s ease infinite;
+      box-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+    }
+    @keyframes gradientGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .status-win {
+      animation: textGlow 2s ease-in-out infinite alternate;
+      font-weight: bold;
+      color: #ff0080;
+      text-shadow:
+        0 0 5px #ff0080,
+        0 0 10px #ff0080,
+        0 0 20px #ff0080,
+        0 0 40px #ff00ff;
+    }
+    @keyframes textGlow {
+      0% {
+        color: #ff0080;
+        text-shadow:
+          0 0 5px #ff0080,
+          0 0 10px #ff0080,
+          0 0 20px #ff0080,
+          0 0 40px #ff00ff;
+      }
+      100% {
+        color: #ffbb00;
+        text-shadow:
+          0 0 10px #ffbb00,
+          0 0 20px #ffbb00,
+          0 0 30px #ffbb00,
+          0 0 50px #ffbb00;
+      }
+    }
